@@ -10,7 +10,7 @@ jobs:
 
     steps:
       # Step 1: Checkout code
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       # Step 2: Log in to Docker Hub
@@ -27,5 +27,6 @@ jobs:
           docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:${{ github.sha }} -f pipeline-practice/Dockerfile pipeline-practice/
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:${{ github.sha }}
+
 
 
